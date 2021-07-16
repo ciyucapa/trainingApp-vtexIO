@@ -4,8 +4,8 @@ type Props = {
   name: string
 }
 
-function trainingApp({ name }: Props) {
+function TrainingApp({ name }: Props) {
   return <div>Hey, {name}</div>
 }
 
-export default trainingApp
+export default TrainingApp
