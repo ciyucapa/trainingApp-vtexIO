@@ -1,5 +1,8 @@
 {
     "training-app": {
         "component": "TrainingApp"
+    },
+    "expiration-app": {
+        "component": "Expiration"
     }
 }

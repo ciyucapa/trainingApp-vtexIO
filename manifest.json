@@ -10,7 +10,9 @@
     "docs": "0.x",
     "store": "0.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vtex.product-context": "0.x"
+  },
   "registries": [
     "smartcheckout"
   ],
