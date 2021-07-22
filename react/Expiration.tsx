@@ -6,12 +6,18 @@ import useExpiration from './hooks/useExpiration';
 const Information = (props: ExpirationInformation) => (
     <>
         <div>{props.validUntilDate ? `Vencimiento ${props.validUntilDate}` : ""}</div>
-        <div>{props.pum ? `Pum ${props.pum}` : ""}</div>
+        <div>{props.pum ? `PUM ${props.pum}` : ""}</div>
+
     </>
 );
 
 const Expiration: FC = () => {
     const hook = useExpiration();
-    return <Information {...hook} />;
+    return (
+        <div>
+            <Information {...hook} />
+        </div>
+    )
+
 }
 export default Expiration;

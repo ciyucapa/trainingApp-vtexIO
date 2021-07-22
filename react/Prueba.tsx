@@ -1,15 +1,17 @@
-import React from 'react'
-//import { canUseDOM } from 'vtex.render-runtime'
-//import { useRuntime } from 'vtex.render-runtime'
+import React from 'react';
 
-function Prueba() {
-    /* const data = canUseDOM
-         ? window.localStorage.getItem('foo')
-         : ''
-     console.log("DATA", data);*/
-    /*const { account } = useRuntime();
-    console.log("RUN", account);*/
-    return <div>RUN  </div>
+import PruebaProps from './interfaces/PruebaProps';
+import useExpiration from './hooks/useExpiration';
+
+const Prueba = (props: PruebaProps) => {
+    const { validUntilDate, pum } = useExpiration();
+
+    return (
+        <>
+            <div>{props.date === "Fecha de vencimiento" ? `Vencimiento ${validUntilDate}` : ""}</div>
+            <div>{props.pums === "Pum" ? `PUM ${pum}` : ""}</div>
+        </>
+    )
 }
 
 export default Prueba
