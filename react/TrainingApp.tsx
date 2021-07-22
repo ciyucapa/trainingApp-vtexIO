@@ -5,7 +5,7 @@ import useExpiration from './hooks/useExpiration';
 
 const Information = (props: ExpirationInformation) => (
   <>
-    <div>{props.pum ? `Pum ${props.pum}` : ""}</div>
+    <div>{props.pum}</div>
   </>
 );
 

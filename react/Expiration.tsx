@@ -5,9 +5,8 @@ import useExpiration from './hooks/useExpiration';
 
 const Information = (props: ExpirationInformation) => (
     <>
-        <div>{props.validUntilDate ? `Vencimiento ${props.validUntilDate}` : ""}</div>
-        <div>{props.pum ? `PUM ${props.pum}` : ""}</div>
-
+        <div>{props.validUntilDate}</div>
+        <div>{props.pum}</div>
     </>
 );
 

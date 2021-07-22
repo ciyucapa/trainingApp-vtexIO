@@ -1,12 +1,16 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useProduct } from 'vtex.product-context';
 
 import Property from '../interfaces/Property';
+import PruebaValidation from '../interfaces/PruebaValidation';
 
-const useExpiration = () => {
+const useExpiration = (props?: PruebaValidation) => {
     const { product: { properties } } = useProduct();
 
-    const valueExtract = (nameProperty: string) => {
+    const valueExtract = useCallback((propertyValidation: string = '', nameProperty: string) => {
+        if (props && propertyValidation !== nameProperty)
+            return '';
+
         let value = '';
 
         properties.some((property: Property) => {
@@ -20,16 +24,20 @@ const useExpiration = () => {
         });
 
         return value;
-    };
+    }, [props]);
 
     const validUntilDate = useMemo(
-        () => valueExtract('Fecha de vencimiento'),
-        [properties]
+        () => {
+            let value = valueExtract(props ? props.date : '', 'Fecha de vencimiento'); //condicion para validar props vtex
+            return value ? `Vencimiento ${value}` : '';
+        }, [properties]
     );
 
     const pum = useMemo(
-        () => valueExtract('CINCO'),
-        [properties]
+        () => {
+            let value = valueExtract(props ? props.pums : '', 'CINCO');
+            return value ? `Pum ${value}` : '';
+        }, [properties]
     );
 
     return {
