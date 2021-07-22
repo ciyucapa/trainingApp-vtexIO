@@ -1,22 +1,12 @@
 import React, { FC } from 'react';
 
-import ExpirationInformation from './interfaces/ExpirationInformation';
 import useExpiration from './hooks/useExpiration';
-
-const Information = (props: ExpirationInformation) => (
-    <>
-        <div>{props.validUntilDate}</div>
-        <div>{props.pum}</div>
-    </>
-);
+import ProductInformation from './components/commons/ProductInformation/Information';
 
 const Expiration: FC = () => {
     const hook = useExpiration();
-    return (
-        <div>
-            <Information {...hook} />
-        </div>
-    )
+    return <ProductInformation {...hook} />;
 
-}
+};
+
 export default Expiration;
