@@ -30,14 +30,14 @@ const useExpiration = (props?: PruebaValidation) => {
         () => {
             let value = valueExtract(props ? props.date : '', 'Fecha de vencimiento'); //condicion para validar props vtex
             return value ? `Vencimiento ${value}` : '';
-        }, [properties]
+        }, [properties, props]
     );
 
     const pum = useMemo(
         () => {
             let value = valueExtract(props ? props.pums : '', 'CINCO');
             return value ? `Pum ${value}` : '';
-        }, [properties]
+        }, [properties, props]
     );
 
     return {
