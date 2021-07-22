@@ -4,5 +4,8 @@
     },
     "expiration-app": {
         "component": "Expiration"
+    },
+    "prueba-app": {
+        "component": "Prueba"
     }
 }
