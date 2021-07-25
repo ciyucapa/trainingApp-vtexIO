@@ -7,5 +7,8 @@
     },
     "prueba-app": {
         "component": "Prueba"
+    },
+    "tag-app": {
+        "component": "Tag"
     }
 }

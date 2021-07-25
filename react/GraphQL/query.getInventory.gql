@@ -1,0 +1,13 @@
+query getInventory($sku : ID!){
+  product(identifier:{field: sku, value:$sku}){
+    items{
+      ean,
+      sellers{
+        sellerName,
+        commertialOffer{
+          AvailableQuantity
+        }
+      }
+    }
+  }
+}

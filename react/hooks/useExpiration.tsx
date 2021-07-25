@@ -7,7 +7,7 @@ import PruebaValidation from '../interfaces/PruebaValidation';
 const useExpiration = (props?: PruebaValidation) => {
     const { product: { properties } } = useProduct();
 
-    const valueExtract = useCallback((propertyValidation: string = '', nameProperty: string) => {
+    const valueExtract = useCallback((propertyValidation: string = '', nameProperty: string) => { //Extrae datos de data / valida props vtex
         if (props && propertyValidation !== nameProperty)
             return '';
 
@@ -28,14 +28,14 @@ const useExpiration = (props?: PruebaValidation) => {
 
     const validUntilDate = useMemo(
         () => {
-            let value = valueExtract(props ? props.date : '', 'Fecha de vencimiento'); //condicion para validar props vtex
+            let value = valueExtract(props ? props.date : '', 'Fecha de vencimiento'); //condicion para validar props vtex/ muestra el valor de fecha
             return value ? `Vencimiento ${value}` : '';
         }, [properties, props]
     );
 
     const pum = useMemo(
         () => {
-            let value = valueExtract(props ? props.pums : '', 'CINCO');
+            let value = valueExtract(props ? props.pums : '', 'CINCO');//condicion para validar props vtex/ muestra el valor de CINCO
             return value ? `Pum ${value}` : '';
         }, [properties, props]
     );

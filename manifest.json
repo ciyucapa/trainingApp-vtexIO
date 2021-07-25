@@ -11,7 +11,8 @@
     "store": "0.x"
   },
   "dependencies": {
-    "vtex.product-context": "0.x"
+    "vtex.product-context": "0.x",
+    "vtex.search-graphql": "0.x"
   },
   "registries": [
     "smartcheckout"
