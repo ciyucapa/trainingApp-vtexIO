@@ -6,7 +6,8 @@ import useExpiration from './hooks/useExpiration'
 import ExpirationInformation from './interfaces/ExpirationInformation'
 
 const CSS_HANDLES = [
-  'container-expiration-pum',
+  'box-expiration',
+  'box-pum',
   'title-expiration',
   'value-expiration',
   'title-pum',
@@ -17,7 +18,7 @@ const InformationExpiration = (props: ExpirationInformation) => {
   const { handles } = useCssHandles(CSS_HANDLES, props.blockClass)
 
   return (
-    <div className={`${handles['container-expiration-pum']}`}>
+    <div className={`${handles['box-expiration']}`}>
       <span className={`${handles['title-expiration']}`}>
         {props.validUntilDate ? 'Vencimiento' : ''}
       </span>
@@ -32,8 +33,10 @@ const InformationPum = (props: ExpirationInformation) => {
   const { handles } = useCssHandles(CSS_HANDLES, props.blockClass)
 
   return (
-    <div className={`${handles['container-expiration-pum']}`}>
-      <span className={`${handles['title-pum']}`} />
+    <div className={`${handles['box-pum']}`}>
+      <span className={`${handles['title-pum']}`}>
+        {props.pum ? 'Pum' : ''}
+      </span>
       <span className={`${handles['value-pum']}`}>{props.pum}</span>
     </div>
   )
