@@ -1,7 +1,8 @@
 interface ExpirationInformation {
-    validUntilDate?: string,
-    pum?: string,
-    date?: string,
-};
+  validUntilDate?: string
+  pum?: string
+  date?: string
+  blockClass?: string
+}
 
-export default ExpirationInformation;
+export default ExpirationInformation

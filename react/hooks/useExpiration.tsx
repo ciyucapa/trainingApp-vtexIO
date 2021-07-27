@@ -1,49 +1,54 @@
-import { useMemo, useCallback } from 'react';
-import { useProduct } from 'vtex.product-context';
+import { useMemo, useCallback } from 'react'
+import { useProduct } from 'vtex.product-context'
 
-import Property from '../interfaces/Property';
-import PruebaValidation from '../interfaces/PruebaValidation';
+import Property from '../interfaces/Property'
+import ExpirationAppValidation from '../interfaces/ExpirationAppValidation'
 
-const useExpiration = (props?: PruebaValidation) => {
-    const { product: { properties } } = useProduct();
+const useExpiration = (props?: ExpirationAppValidation) => {
+  const {
+    product: { properties },
+  } = useProduct()
 
-    const valueExtract = useCallback((propertyValidation: string = '', nameProperty: string) => { //Extrae datos de data / valida props vtex
-        if (props && propertyValidation !== nameProperty)
-            return '';
+  const valueExtract = useCallback(
+    (propertyValidation: string, nameProperty: string) => {
+      // Extrae datos de data / valida props vtex
+      if (props && propertyValidation !== nameProperty) return ''
 
-        let value = '';
+      let value = ''
 
-        properties.some((property: Property) => {
-            const validation = property.name === nameProperty;
+      properties.some((property: Property) => {
+        const validation = property.name === nameProperty
 
-            if (validation) {
-                value = property.values[0];
-            }
+        if (validation) {
+          value = property.values[0]
+        }
 
-            return validation;
-        });
+        return validation
+      })
 
-        return value;
-    }, [props]);
+      return value
+    },
+    [props, properties]
+  )
 
-    const validUntilDate = useMemo(
-        () => {
-            let value = valueExtract(props ? props.date : '', 'Fecha de vencimiento'); //condicion para validar props vtex/ muestra el valor de fecha
-            return value ? `Vencimiento ${value}` : '';
-        }, [properties, props]
-    );
+  const validUntilDate = useMemo(() => {
+    const date = `${props ? props.date : ''}`
+    const value = valueExtract(date, 'Fecha de vencimiento') // condicion para validar props vtex/ muestra el valor de fecha
 
-    const pum = useMemo(
-        () => {
-            let value = valueExtract(props ? props.pums : '', 'CINCO');//condicion para validar props vtex/ muestra el valor de CINCO
-            return value ? `Pum ${value}` : '';
-        }, [properties, props]
-    );
+    return value ? `${value}` : ''
+  }, [props, valueExtract])
 
-    return {
-        validUntilDate,
-        pum,
-    }
-};
+  const pum = useMemo(() => {
+    const pums = `${props ? props.pums : ''}`
+    const value = valueExtract(pums, 'CINCO') // condicion para validar props vtex/ muestra el valor de CINCO
 
-export default useExpiration;
+    return value ? `${value}` : ''
+  }, [props, valueExtract])
+
+  return {
+    validUntilDate,
+    pum,
+  }
+}
+
+export default useExpiration

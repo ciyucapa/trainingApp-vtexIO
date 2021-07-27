@@ -1,14 +1,14 @@
 {
-    "training-app": {
-        "component": "TrainingApp"
-    },
-    "expiration-app": {
-        "component": "Expiration"
-    },
-    "prueba-app": {
-        "component": "Prueba"
-    },
-    "tag-app": {
-        "component": "Tag"
-    }
+  "training-app": {
+    "component": "TrainingApp"
+  },
+  "expiration": {
+    "component": "Expiration"
+  },
+  "expiration-app": {
+    "component": "ExpirationApp"
+  },
+  "tag-quantity": {
+    "component": "TagQuantity"
+  }
 }
