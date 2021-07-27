@@ -1,12 +1,6 @@
 {
-  "training-app": {
-    "component": "TrainingApp"
-  },
-  "expiration": {
-    "component": "Expiration"
-  },
-  "expiration-app": {
-    "component": "ExpirationApp"
+  "expiration-pum-app": {
+    "component": "ExpirationPumApp"
   },
   "tag-quantity": {
     "component": "TagQuantity"
