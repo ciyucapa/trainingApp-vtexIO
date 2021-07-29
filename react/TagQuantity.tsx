@@ -11,7 +11,7 @@ const CSS_HANDLES = [
 ] as const
 
 const InformationTag = (props: InformationTagProps) => {
-  const { handles } = useCssHandles(CSS_HANDLES, props.blockClass)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   return (
     <div className={`${handles['container-flagLastUnit']}`}>

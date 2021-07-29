@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
 import ExpirationAppValidation from './interfaces/ExpirationAppValidation'
@@ -15,7 +15,7 @@ const CSS_HANDLES = [
 ] as const
 
 const InformationExpiration = (props: ExpirationInformation) => {
-  const { handles } = useCssHandles(CSS_HANDLES, props.blockClass)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   return (
     <div className={`${handles['box-expiration']}`}>
@@ -30,7 +30,7 @@ const InformationExpiration = (props: ExpirationInformation) => {
 }
 
 const InformationPum = (props: ExpirationInformation) => {
-  const { handles } = useCssHandles(CSS_HANDLES, props.blockClass)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   return (
     <div className={`${handles['box-pum']}`}>
@@ -42,13 +42,13 @@ const InformationPum = (props: ExpirationInformation) => {
   )
 }
 
-const ExpirationApp = (props: ExpirationAppValidation) => {
+const ExpirationApp: FC<ExpirationAppValidation> = ({ date, pums }) => {
   const hook = useExpiration()
 
   return (
     <>
-      {props.date ? <InformationExpiration {...hook} /> : ''}
-      {props.pums ? <InformationPum {...hook} /> : ''}
+      {date ? <InformationExpiration {...hook} /> : ''}
+      {pums ? <InformationPum {...hook} /> : ''}
     </>
   )
 }
